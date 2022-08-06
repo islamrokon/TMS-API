@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TMSAPIModelStoreContainer" CdmEntityContainer="TMSAPIEntities">
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="TMSAPIModel.Booking">
+        <MappingFragment StoreEntitySet="Booking">
+          <ScalarProperty Name="bookingid" ColumnName="bookingid" />
+          <ScalarProperty Name="clientid" ColumnName="clientid" />
+          <ScalarProperty Name="packageid" ColumnName="packageid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="TMSAPIModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="clientid" ColumnName="clientid" />
+          <ScalarProperty Name="clientemail" ColumnName="clientemail" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="clientname" ColumnName="clientname" />
+          <ScalarProperty Name="clientcontact" ColumnName="clientcontact" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Packages">
+      <EntityTypeMapping TypeName="TMSAPIModel.Package">
+        <MappingFragment StoreEntitySet="Package">
+          <ScalarProperty Name="packageprice" ColumnName="packageprice" />
+          <ScalarProperty Name="eventtime" ColumnName="eventtime" />
+          <ScalarProperty Name="packagelocation" ColumnName="packagelocation" />
+          <ScalarProperty Name="packagetype" ColumnName="packagetype" />
+          <ScalarProperty Name="packageid" ColumnName="packageid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tokens">
+      <EntityTypeMapping TypeName="TMSAPIModel.Token">
+        <MappingFragment StoreEntitySet="Token">
+          <ScalarProperty Name="tokenaccess" ColumnName="tokenaccess" />
+          <ScalarProperty Name="Expireat" ColumnName="Expireat" />
+          <ScalarProperty Name="Createdat" ColumnName="Createdat" />
+          <ScalarProperty Name="clientid" ColumnName="clientid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

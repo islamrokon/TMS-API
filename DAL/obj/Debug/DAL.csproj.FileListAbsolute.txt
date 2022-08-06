@@ -1,0 +1,10 @@
+E:\semester 08\Project\Client\DAL\bin\Debug\DAL.dll.config
+E:\semester 08\Project\Client\DAL\bin\Debug\DAL.dll
+E:\semester 08\Project\Client\DAL\bin\Debug\DAL.pdb
+E:\semester 08\Project\Client\DAL\bin\Debug\EntityFramework.dll
+E:\semester 08\Project\Client\DAL\bin\Debug\EntityFramework.xml
+E:\semester 08\Project\Client\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+E:\semester 08\Project\Client\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\semester 08\Project\Client\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\semester 08\Project\Client\DAL\obj\Debug\DAL.dll
+E:\semester 08\Project\Client\DAL\obj\Debug\DAL.pdb

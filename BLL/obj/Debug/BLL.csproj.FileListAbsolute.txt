@@ -1,0 +1,14 @@
+E:\semester 08\Project\Client\BLL\bin\Debug\BLL.dll
+E:\semester 08\Project\Client\BLL\bin\Debug\BLL.pdb
+E:\semester 08\Project\Client\BLL\bin\Debug\DAL.dll
+E:\semester 08\Project\Client\BLL\bin\Debug\EntityFramework.dll
+E:\semester 08\Project\Client\BLL\bin\Debug\DAL.pdb
+E:\semester 08\Project\Client\BLL\bin\Debug\DAL.dll.config
+E:\semester 08\Project\Client\BLL\bin\Debug\EntityFramework.xml
+E:\semester 08\Project\Client\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+E:\semester 08\Project\Client\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+E:\semester 08\Project\Client\BLL\obj\Debug\BLL.csproj.CopyComplete
+E:\semester 08\Project\Client\BLL\obj\Debug\BLL.dll
+E:\semester 08\Project\Client\BLL\obj\Debug\BLL.pdb
+E:\semester 08\Project\Client\BLL\bin\Debug\AutoMapper.dll
+E:\semester 08\Project\Client\BLL\bin\Debug\AutoMapper.xml

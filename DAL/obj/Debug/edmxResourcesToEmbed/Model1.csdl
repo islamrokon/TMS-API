@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TMSAPIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="bookingid" />
+    </Key>
+    <Property Name="bookingid" Type="Int32" Nullable="false" />
+    <Property Name="clientid" Type="Int32" Nullable="false" />
+    <Property Name="packageid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Booking_Client" FromRole="Booking" ToRole="Client" />
+    <NavigationProperty Name="Package" Relationship="TMSAPIModel.FK_Booking_Package" FromRole="Booking" ToRole="Package" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="clientid" />
+    </Key>
+    <Property Name="clientid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clientemail" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="clientname" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="clientcontact" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="username" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Bookings" Relationship="Self.FK_Booking_Client" FromRole="Client" ToRole="Booking" />
+    <NavigationProperty Name="Tokens" Relationship="TMSAPIModel.FK_Token_Client" FromRole="Client" ToRole="Token" />
+  </EntityType>
+  <Association Name="FK_Booking_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="clientid" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="clientid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TMSAPIEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bookings" EntityType="Self.Booking" />
+    <EntitySet Name="Clients" EntityType="Self.Client" />
+    <AssociationSet Name="FK_Booking_Client" Association="Self.FK_Booking_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+    <EntitySet Name="Packages" EntityType="TMSAPIModel.Package" />
+    <AssociationSet Name="FK_Booking_Package" Association="TMSAPIModel.FK_Booking_Package">
+      <End Role="Package" EntitySet="Packages" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+    <EntitySet Name="Tokens" EntityType="TMSAPIModel.Token" />
+    <AssociationSet Name="FK_Token_Client" Association="TMSAPIModel.FK_Token_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Token" EntitySet="Tokens" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="packageid" />
+    </Key>
+    <Property Name="packageid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="packagetype" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="packagelocation" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="eventtime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="packageprice" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Bookings" Relationship="TMSAPIModel.FK_Booking_Package" FromRole="Package" ToRole="Booking" />
+  </EntityType>
+  <Association Name="FK_Booking_Package">
+    <End Type="TMSAPIModel.Package" Role="Package" Multiplicity="1" />
+    <End Type="TMSAPIModel.Booking" Role="Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package">
+        <PropertyRef Name="packageid" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="packageid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clientid" Type="Int32" Nullable="false" />
+    <Property Name="Createdat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Expireat" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Client" Relationship="TMSAPIModel.FK_Token_Client" FromRole="Token" ToRole="Client" />
+    <Property Name="tokenaccess" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Token_Client">
+    <End Type="TMSAPIModel.Client" Role="Client" Multiplicity="1" />
+    <End Type="TMSAPIModel.Token" Role="Token" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="clientid" />
+      </Principal>
+      <Dependent Role="Token">
+        <PropertyRef Name="clientid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
